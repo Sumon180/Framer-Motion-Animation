@@ -1,83 +1,53 @@
 /* eslint-disable react/prop-types */
 import { motion } from "framer-motion"
+import { useState } from "react"
 
-
-
-
-const FramerMotion = ({ name }) => {
+const FramerMotion = () => {
+    const [showCard, setShowCard] = useState(false)
     return (
-        <div>
-            <h1
-                style={{ textAlign: "center" }}
+        <div style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            background: "grey"
+        }}
+        >
+            <motion.div
+                style={{
+                    background: "#fff",
+                    padding: "3rem 2rem",
+                    borderRadius: "8px",
+                    boxShadow: "0 0 10px rgba(0,0,0,0.2)",
+                    cursor: "Pointer"
+                }}
+                whileHover={{
+                    scale: 1.1
+                }}
+                transition={{
+                    layout: {
+                        duration: 1,
+                        type: "spring"
+                    }
+                }}
+                layout
+                onClick={() => setShowCard(!showCard)}
             >
-                Draggable object with {name}
-            </h1>
-            <div style={{
-                display: "flex",
-                flexDirection: "row",
-                gap: "200px",
-                alignItems: "center",
-                justifyContent: "center",
-                marginTop: "120px"
-            }}
-            >
-                <div>
-                    <p>No Constraint</p>
-                    <motion.div
-                        style={{
-                            width: "100px",
-                            height: "100px",
-                            background: "crimson"
-                        }}
-                        drag
-                    >
-
-                    </motion.div>
-                </div>
-                <div>
-                    <p>Drag Y only Constraint</p>
-                    <motion.div
-                        style={{
-                            width: "100px",
-                            height: "100px",
-                            background: "crimson"
-                        }}
-                        drag="y"
-                    >
-
-                    </motion.div>
-                </div>
-                <div>
-                    <p>Drag X only Constraint</p>
-                    <motion.div
-                        style={{
-                            width: "100px",
-                            height: "100px",
-                            background: "crimson"
-                        }}
-                        drag="x"
-                    >
-
-                    </motion.div>
-                </div>
-                <div>
-                    <p>Drag Constraint</p>
-                    <motion.div
-                        style={{
-                            width: "100px",
-                            height: "100px",
-                            background: "crimson"
-                        }}
-                        drag
-                        dragConstraints={{
-                            left: 0, right: 100, top: -100
-                        }}
-                    >
-
-                    </motion.div>
-                </div>
-            </div>
+                <motion.h3>Hover or Click</motion.h3>
+                {
+                    showCard && (
+                        <motion.p
+                            style={{ width: "600px" }}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                        >
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum reprehenderit vero quibusdam cum nisi pariatur reiciendis ipsum, saepe aliquam fugit suscipit laboriosam repudiandae at sapiente tenetur tempora debitis illo voluptatibus! Enim suscipit natus veritatis ab excepturi nostrum, ipsam, dolorem itaque culpa unde illo? Assumenda error, soluta quis rerum fugit sit!
+                        </motion.p>
+                    )
+                }
+            </motion.div>
         </div>
+
     )
 }
 
