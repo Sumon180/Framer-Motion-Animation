@@ -41,6 +41,7 @@ const FramerMotion = ({ name }) => {
                         duration: "1"
                     }}
                 >
+                    Hi, There...!
                 </motion.div>}
             </AnimatePresence>
             <Button onClick={handleClick} show={show} />
