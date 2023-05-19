@@ -12,7 +12,6 @@ const FramerMotion = ({ name }) => {
                     duration: "2",
                     delay: "0.5"
                 }}
-                style={{ background: "Black", color: "white", height: "50rem" }}
             >
                 Hello, {name}
             </motion.h1>
