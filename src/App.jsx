@@ -4,7 +4,7 @@ import FramerMotion from './components/FramerMotion'
 const App = () => {
   return (
     <div>
-      <FramerMotion name="Bangladesh" />
+      <FramerMotion name="Framer-Motion" />
     </div>
   )
 }

@@ -1,52 +1,82 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
-import Button from "./Button"
+import { motion } from "framer-motion"
+
 
 
 
 const FramerMotion = ({ name }) => {
-    const [show, setShow] = useState(true)
-
-    const handleClick = () => {
-        setShow(!show)
-    }
-
     return (
-        <div
-            style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "10px",
-                alignItems: "center"
-            }}
-        >
+        <div>
             <h1
-                style={{
-                    marginTop: "30px"
-                }}
+                style={{ textAlign: "center" }}
             >
-                Hello, {name}
+                Draggable object with {name}
             </h1>
-            <AnimatePresence>
-                {show && <motion.div
-                    style={{
-                        width: "100px",
-                        height: "100px",
-                        color: "#fff",
-                        background: "blue"
-                    }}
-                    initial={{ opacity: 0, x: 0 }}
-                    animate={{ opacity: 1, x: 100 }}
-                    exit={{ opacity: 0, x: -150 }}
-                    transition={{
-                        duration: "1"
-                    }}
-                >
-                    <h2>Hi, There...</h2>
-                </motion.div>}
-            </AnimatePresence>
-            <Button onClick={handleClick} show={show} />
+            <div style={{
+                display: "flex",
+                flexDirection: "row",
+                gap: "200px",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: "120px"
+            }}
+            >
+                <div>
+                    <p>No Constraint</p>
+                    <motion.div
+                        style={{
+                            width: "100px",
+                            height: "100px",
+                            background: "crimson"
+                        }}
+                        drag
+                    >
+
+                    </motion.div>
+                </div>
+                <div>
+                    <p>Drag Y only Constraint</p>
+                    <motion.div
+                        style={{
+                            width: "100px",
+                            height: "100px",
+                            background: "crimson"
+                        }}
+                        drag="y"
+                    >
+
+                    </motion.div>
+                </div>
+                <div>
+                    <p>Drag X only Constraint</p>
+                    <motion.div
+                        style={{
+                            width: "100px",
+                            height: "100px",
+                            background: "crimson"
+                        }}
+                        drag="x"
+                    >
+
+                    </motion.div>
+                </div>
+                <div>
+                    <p>Drag Constraint</p>
+                    <motion.div
+                        style={{
+                            width: "100px",
+                            height: "100px",
+                            background: "crimson"
+                        }}
+                        drag
+                        dragConstraints={{
+                            left: 0, right: 100, top: -100
+                        }}
+                    >
+
+                    </motion.div>
+                </div>
+            </div>
         </div>
     )
 }
