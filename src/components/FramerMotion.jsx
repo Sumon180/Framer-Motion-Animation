@@ -31,7 +31,9 @@ const FramerMotion = ({ name }) => {
             <AnimatePresence>
                 {show && <motion.div
                     style={{
-                        width: "100px", height: "100px",
+                        width: "100px",
+                        height: "100px",
+                        color: "#fff",
                         background: "blue"
                     }}
                     initial={{ opacity: 0, x: 0 }}
@@ -41,7 +43,7 @@ const FramerMotion = ({ name }) => {
                         duration: "1"
                     }}
                 >
-                    Hi, There...!
+                    <h2>Hi, There...</h2>
                 </motion.div>}
             </AnimatePresence>
             <Button onClick={handleClick} show={show} />
