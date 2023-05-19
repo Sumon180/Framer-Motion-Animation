@@ -13,3 +13,23 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+.advanced-button {
+  /* Define your button styles here */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.advanced-button:hover {
+  /* Define hover styles */
+  background-color: #0056b3;
+}
+
+.advanced-button:active {
+  /* Define active styles */
+  background-color: #003d80;
+}
