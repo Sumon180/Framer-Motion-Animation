@@ -1,53 +1,41 @@
 /* eslint-disable react/prop-types */
-import { motion } from "framer-motion"
-import { useState } from "react"
+import { motion, useScroll } from "framer-motion"
 
 const FramerMotion = () => {
-    const [showCard, setShowCard] = useState(false)
+    const { scrollYProgress } = useScroll()
     return (
-        <div style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100vh",
-            background: "grey"
-        }}
-        >
-            <motion.div
-                style={{
-                    background: "#fff",
-                    padding: "3rem 2rem",
-                    borderRadius: "8px",
-                    boxShadow: "0 0 10px rgba(0,0,0,0.2)",
-                    cursor: "Pointer"
-                }}
-                whileHover={{
-                    scale: 1.1
-                }}
-                transition={{
-                    layout: {
-                        duration: 1,
-                        type: "spring"
-                    }
-                }}
-                layout
-                onClick={() => setShowCard(!showCard)}
+        <>
+            <motion.div style={{
+                scaleX: scrollYProgress,
+                position: "fixed",
+                top: 0,
+                right: 0,
+                left: 0,
+                height: 10,
+                background: "blue",
+                transformOrigin: "0%"
+            }}
             >
-                <motion.h3>Hover or Click</motion.h3>
-                {
-                    showCard && (
-                        <motion.p
-                            style={{ width: "600px" }}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                        >
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum reprehenderit vero quibusdam cum nisi pariatur reiciendis ipsum, saepe aliquam fugit suscipit laboriosam repudiandae at sapiente tenetur tempora debitis illo voluptatibus! Enim suscipit natus veritatis ab excepturi nostrum, ipsam, dolorem itaque culpa unde illo? Assumenda error, soluta quis rerum fugit sit!
-                        </motion.p>
-                    )
-                }
-            </motion.div>
-        </div>
 
+            </motion.div>
+            <h2>Scroll Demo</h2><br /><br />
+            <p>Lorem ipsum dolor sit amet consectetur</p><br /><br />
+            <p>Lorem ipsum dolor sit amet consectetur</p><br /><br />
+            <p>Lorem ipsum dolor sit amet consectetur</p><br /><br />
+            <p>Lorem ipsum dolor sit amet consectetur</p><br /><br />
+            <p>Lorem ipsum dolor sit amet consectetur</p><br /><br />
+            <p>Lorem ipsum dolor sit amet consectetur</p><br /><br />
+            <p>Lorem ipsum dolor sit amet consectetur</p><br /><br />
+            <p>Lorem ipsum dolor sit amet consectetur</p><br /><br />
+            <p>Lorem ipsum dolor sit amet consectetur</p><br /><br />
+            <p>Lorem ipsum dolor sit amet consectetur</p><br /><br />
+            <p>Lorem ipsum dolor sit amet consectetur</p><br /><br />
+            <p>Lorem ipsum dolor sit amet consectetur</p><br /><br />
+            <p>Lorem ipsum dolor sit amet consectetur</p><br /><br />
+            <p>Lorem ipsum dolor sit amet consectetur</p><br /><br />
+
+
+        </>
     )
 }
 
